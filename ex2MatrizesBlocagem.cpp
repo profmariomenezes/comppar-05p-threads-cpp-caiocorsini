@@ -63,7 +63,8 @@ int main() {
         std::cin >> n;  //Comando c++ para pegar input
         printf("Tamanho escolhido: %d\n", n);
         if(n < TAM_BLOCO) printf("Tamanho tem que ser no minimo %d, pois eh o tamanho dos blocos.", TAM_BLOCO);
-    }while(n < TAM_BLOCO);
+        if(n%16 != 0) printf("Tamanho tem que ser multiplo de %d, pois eh o tamanho dos blocos.", TAM_BLOCO);
+    }while(n < TAM_BLOCO || n%16 != 0);
 
     // std::vector<std::vector<int>> eh o tipo para formar a matriz dinamicamente
     std::vector<std::vector<int>>matriz1(n, std::vector<int>(n, 5));  //Crio a matriz quadrada 1. totalmente preenchida com 5s
@@ -103,5 +104,12 @@ g++ ~/CompParalel/ex2MatrizesBlocagem.cpp -o ~/CompParalel/ex2MatrizesBlocagem &
 clear &&
 cp "/mnt/c/Users/caiof/Documentos disco local/aaaComputacao_faculdade/Computação paralela/Labs/Lab3 - MultiplicandoMatrizes/ex2MatrizesBlocagem.cpp" ~/CompParalel/ && \
 g++ ~/CompParalel/ex2MatrizesBlocagem.cpp -O0 -fno-tree-vectorize -fno-inline -o ~/CompParalel/ex2MatrizesBlocagem && \
+~/CompParalel/ex2MatrizesBlocagem
+*/
+
+/*                              PARA COMPILAR E EXECUTAR (COM OTIMIZACOES)
+clear &&
+cp "/mnt/c/Users/caiof/Documentos disco local/aaaComputacao_faculdade/Computação paralela/Labs/Lab3 - MultiplicandoMatrizes/ex2MatrizesBlocagem.cpp" ~/CompParalel/ && \
+g++ ~/CompParalel/ex2MatrizesBlocagem.cpp -O3 -fno-tree-vectorize -fno-inline -o ~/CompParalel/ex2MatrizesBlocagem && \
 ~/CompParalel/ex2MatrizesBlocagem
 */
